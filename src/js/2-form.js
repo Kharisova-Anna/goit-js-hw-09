@@ -21,11 +21,14 @@ if (storageData) {
 form.addEventListener("submit", event => {
     event.preventDefault();
 
-    if (!formData.email || !formData.message) {
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!email || !message) {
         alert("Fill please all fields");
         return;
     }
-    console.log(formData);
+    console.log({ email, message });
     localStorage.removeItem(localStorageKey);
 
     formData.email = '';
